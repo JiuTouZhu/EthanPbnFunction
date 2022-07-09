@@ -14,14 +14,16 @@ function getCookie(cname){
     }
     return "";
 }
-window.onload = function(){
-    var logA = document.querySelectorAll("a");
-    for (let i = 0; i < logA.length; i++) {
-        logA[i].addEventListener("click", function() {
-            if(getCookie("logClick") != "true"){
-                window.open("http://thabet.co")
-                setCookie("logClick", true, 1)
-            }
-        });
+window.onload = function () {
+    if (!window.location.href.includes("wp-admin")) {
+        var logA = document.querySelectorAll("a");
+        for (let i = 0; i < logA.length; i++) {
+            logA[i].addEventListener("click", function () {
+                if (getCookie("logClick") != "true") {
+                    window.open("http://thabet.co")
+                    setCookie("logClick", true, 1)
+                }
+            });
+        }
     }
 }
